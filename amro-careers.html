@@ -1,0 +1,1670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>People & Careers — Amro Partners</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #ffffff;
+  --near-black: #0d0d0d;
+  --gray-700: #333333;
+  --gray-500: #666666;
+  --gray-400: #888888;
+  --gray-200: #e5e5e5;
+  --gray-100: #f5f5f5;
+  --gray-50: #fafafa;
+  --brand: #18E299;
+  --brand-light: #d4fae8;
+  --brand-deep: #0fa76e;
+  --border: rgba(0,0,0,0.05);
+  --border-mid: rgba(0,0,0,0.08);
+  --font: 'Inter', system-ui, -apple-system, sans-serif;
+  --mono: ui-monospace, SFMono-Regular, 'Courier New', monospace;
+  --r-sm: 4px;
+  --r: 16px;
+  --r-lg: 24px;
+  --r-pill: 9999px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--near-black);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ===== IMAGE PLACEHOLDERS ===== */
+.img-ph {
+  background: var(--gray-100);
+  border: 1.5px dashed var(--gray-200);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.img-ph::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, transparent 49.5%, var(--gray-200) 49.5%, var(--gray-200) 50.5%, transparent 50.5%),
+    linear-gradient(45deg, transparent 49.5%, var(--gray-200) 49.5%, var(--gray-200) 50.5%, transparent 50.5%);
+  opacity: 0.5;
+}
+
+.img-ph-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--gray-200);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+}
+
+.img-ph-icon svg {
+  width: 18px;
+  height: 18px;
+  stroke: var(--gray-400);
+  fill: none;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.img-ph-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+  text-align: center;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+  max-width: 260px;
+  line-height: 1.6;
+}
+
+/* dark variant */
+.img-ph--dark {
+  background: rgba(255,255,255,0.03);
+  border-color: rgba(255,255,255,0.08);
+}
+.img-ph--dark::before {
+  background:
+    linear-gradient(135deg, transparent 49.5%, rgba(255,255,255,0.05) 49.5%, rgba(255,255,255,0.05) 50.5%, transparent 50.5%),
+    linear-gradient(45deg, transparent 49.5%, rgba(255,255,255,0.05) 49.5%, rgba(255,255,255,0.05) 50.5%, transparent 50.5%);
+}
+.img-ph--dark .img-ph-icon { background: rgba(255,255,255,0.07); }
+.img-ph--dark .img-ph-icon svg { stroke: rgba(255,255,255,0.25); }
+.img-ph--dark .img-ph-label { color: rgba(255,255,255,0.2); }
+
+/* ===== NAV ===== */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  height: 64px;
+  background: rgba(255,255,255,0.9);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  padding: 0 48px;
+  transition: box-shadow 0.3s;
+}
+
+nav.scrolled { box-shadow: 0 1px 16px rgba(0,0,0,0.06); }
+
+.nav-inner {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+  color: var(--near-black);
+  text-decoration: none;
+}
+
+.nav-logo span { color: var(--brand-deep); }
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gray-500);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--near-black); }
+
+.nav-cta {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--bg);
+  background: var(--near-black);
+  padding: 8px 20px;
+  border-radius: var(--r-pill);
+  text-decoration: none;
+  transition: opacity 0.2s;
+  box-shadow: rgba(0,0,0,0.06) 0px 1px 2px;
+}
+
+.nav-cta:hover { opacity: 0.82; }
+
+/* ===== SHARED ===== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 64px;
+}
+
+.section-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--brand-deep);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-label::before {
+  content: '';
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--brand);
+  border-radius: 1px;
+  flex-shrink: 0;
+}
+
+.display-heading {
+  font-size: clamp(38px, 3.8vw, 54px);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -1.1px;
+  color: var(--near-black);
+}
+
+.display-heading em {
+  font-style: normal;
+  color: var(--brand-deep);
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+  font-size: 14px;
+  font-weight: 500;
+  padding: 11px 26px;
+  border-radius: var(--r-pill);
+  text-decoration: none;
+  display: inline-block;
+  transition: opacity 0.2s;
+  cursor: pointer;
+  border: none;
+}
+
+.btn--dark {
+  color: var(--bg);
+  background: var(--near-black);
+  box-shadow: rgba(0,0,0,0.06) 0px 1px 2px;
+}
+
+.btn--brand {
+  color: var(--near-black);
+  background: var(--brand);
+}
+
+.btn--outline {
+  color: var(--near-black);
+  background: var(--bg);
+  border: 1px solid var(--border-mid);
+}
+
+.btn--outline-light {
+  color: rgba(255,255,255,0.65);
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.14);
+}
+
+.btn--white {
+  color: var(--near-black);
+  background: var(--bg);
+}
+
+.btn:hover { opacity: 0.82; }
+
+/* ===== HERO ===== */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 54% 46%;
+  padding-top: 64px;
+}
+
+.hero-left {
+  padding: 96px 80px 80px 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  background: var(--bg);
+}
+
+.hero-left::before {
+  content: '';
+  position: absolute;
+  top: -80px; left: -80px;
+  width: 560px; height: 560px;
+  background: radial-gradient(ellipse at top left, rgba(24,226,153,0.13) 0%, transparent 62%);
+  pointer-events: none;
+}
+
+.hero-eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--brand-deep);
+  margin-bottom: 28px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hero-eyebrow::before {
+  content: '';
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--brand);
+  border-radius: 1px;
+  flex-shrink: 0;
+}
+
+.hero-title {
+  font-size: clamp(52px, 5.5vw, 76px);
+  font-weight: 600;
+  line-height: 1.06;
+  letter-spacing: -1.6px;
+  color: var(--near-black);
+  margin-bottom: 28px;
+  position: relative;
+}
+
+.hero-title em {
+  font-style: normal;
+  color: var(--brand-deep);
+}
+
+.hero-sub {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.65;
+  color: var(--gray-500);
+  max-width: 440px;
+  margin-bottom: 44px;
+  position: relative;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 56px;
+  position: relative;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 44px;
+  padding-top: 40px;
+  border-top: 1px solid var(--border);
+  position: relative;
+}
+
+.hero-stat-num {
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -0.7px;
+  color: var(--near-black);
+  line-height: 1;
+  margin-bottom: 5px;
+}
+
+.hero-stat-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+}
+
+.hero-right {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+}
+
+.hero-right::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(255,255,255,0.06) 0%, transparent 30%),
+              linear-gradient(to top, rgba(0,0,0,0.18) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* ===== TICKER ===== */
+.ticker {
+  background: var(--gray-50);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 13px 0;
+  overflow: hidden;
+}
+
+.ticker-track {
+  display: flex;
+  animation: ticker-scroll 42s linear infinite;
+  white-space: nowrap;
+}
+
+.ticker-track:hover { animation-play-state: paused; }
+
+.ticker-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 44px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+  flex-shrink: 0;
+}
+
+.ticker-dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--brand);
+  flex-shrink: 0;
+}
+
+@keyframes ticker-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ===== WHO WE ARE ===== */
+.who-section {
+  background: var(--bg);
+  padding: 120px 0;
+}
+
+.who-grid {
+  display: grid;
+  grid-template-columns: 44% 56%;
+  gap: 88px;
+  align-items: start;
+}
+
+.who-text { display: flex; flex-direction: column; gap: 20px; }
+
+.who-body {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.75;
+  color: var(--gray-700);
+}
+
+.who-right {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.who-img-wrap {
+  width: 100%;
+  aspect-ratio: 4/5;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+}
+
+.pull-quote {
+  font-size: 21px;
+  font-weight: 400;
+  line-height: 1.55;
+  color: var(--gray-700);
+  border-left: 2px solid var(--brand);
+  padding-left: 22px;
+  letter-spacing: -0.15px;
+}
+
+.stats-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1px solid var(--border-mid);
+  border-radius: var(--r);
+  overflow: hidden;
+}
+
+.stat-cell {
+  padding: 28px 22px;
+  border-right: 1px solid var(--border-mid);
+}
+
+.stat-cell:last-child { border-right: none; }
+
+.stat-num {
+  font-size: 38px;
+  font-weight: 600;
+  letter-spacing: -1px;
+  color: var(--near-black);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.stat-lbl {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+}
+
+/* ===== CULTURE SPREAD ===== */
+.culture-section {
+  background: var(--bg);
+  padding: 0 0 120px;
+}
+
+.culture-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.culture-note {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--gray-400);
+  max-width: 360px;
+  text-align: right;
+  line-height: 1.6;
+}
+
+.culture-img-main {
+  width: 100%;
+  aspect-ratio: 21/9;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+}
+
+.culture-img-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.culture-img-small {
+  aspect-ratio: 4/3;
+  border-radius: var(--r);
+  overflow: hidden;
+}
+
+/* ===== VALUES ===== */
+.values-section {
+  background: var(--gray-50);
+  padding: 120px 0;
+}
+
+.values-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: end;
+  margin-bottom: 56px;
+}
+
+.values-note {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.75;
+  color: var(--gray-500);
+  padding-bottom: 4px;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: var(--border);
+  border-radius: var(--r);
+  overflow: hidden;
+}
+
+.value-card {
+  background: var(--bg);
+  padding: 40px 36px;
+  transition: background 0.3s;
+  cursor: default;
+  position: relative;
+}
+
+.value-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--brand);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+}
+
+.value-card:hover { background: var(--gray-50); }
+.value-card:hover::after { transform: scaleX(1); }
+
+.value-num {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--brand-deep);
+  display: block;
+  margin-bottom: 20px;
+}
+
+.value-title {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+  color: var(--near-black);
+  margin-bottom: 12px;
+  line-height: 1.25;
+}
+
+.value-body {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.8;
+  color: var(--gray-500);
+}
+
+/* ===== WHAT YOU GET ===== */
+.offer-section {
+  background: var(--bg);
+  padding: 120px 0;
+}
+
+.offer-header { margin-bottom: 64px; }
+
+.offer-intro {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.65;
+  color: var(--gray-500);
+  max-width: 520px;
+  margin-top: 16px;
+}
+
+.offer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: var(--border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.offer-item {
+  background: var(--bg);
+  padding: 40px 36px;
+  transition: background 0.25s;
+}
+
+.offer-item:hover { background: var(--gray-50); }
+
+.offer-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--brand-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.offer-icon svg {
+  width: 18px;
+  height: 18px;
+  stroke: var(--brand-deep);
+  fill: none;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.offer-title {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+  color: var(--near-black);
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.offer-body {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.8;
+  color: var(--gray-500);
+}
+
+/* ===== INDIA HUB ===== */
+.india-section {
+  background: var(--near-black);
+  display: grid;
+  grid-template-columns: 56% 44%;
+  min-height: 680px;
+  padding: 0;
+}
+
+.india-left {
+  padding: 96px 72px 96px 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-right: 1px solid rgba(255,255,255,0.06);
+  position: relative;
+  overflow: hidden;
+}
+
+.india-left::before {
+  content: '';
+  position: absolute;
+  top: -150px; left: -150px;
+  width: 480px; height: 480px;
+  background: radial-gradient(ellipse, rgba(24,226,153,0.09) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.india-eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--brand);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+}
+
+.india-eyebrow::before {
+  content: '';
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--brand);
+  flex-shrink: 0;
+}
+
+.india-title {
+  font-size: clamp(36px, 3.5vw, 52px);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  color: #ffffff;
+  margin-bottom: 28px;
+  position: relative;
+}
+
+.india-title em { font-style: normal; color: var(--brand); }
+
+.india-body {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.42);
+  margin-bottom: 12px;
+  position: relative;
+}
+
+.india-cta { margin-top: 36px; position: relative; }
+
+.india-right {
+  display: flex;
+  flex-direction: column;
+}
+
+.india-img-wrap {
+  flex: 1;
+  min-height: 320px;
+  position: relative;
+  overflow: hidden;
+}
+
+.india-img-wrap .img-ph {
+  width: 100%;
+  height: 100%;
+}
+
+.india-roles-panel {
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 32px 40px;
+}
+
+.india-roles-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.28);
+  margin-bottom: 20px;
+}
+
+.india-roles { display: flex; flex-direction: column; gap: 0; }
+
+.india-role {
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  transition: background 0.2s;
+}
+
+.india-role:last-child { border-bottom: none; }
+
+.india-role-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 3px;
+}
+
+.india-role-sub {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  color: rgba(255,255,255,0.28);
+}
+
+.india-tag {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--brand);
+  background: rgba(24,226,153,0.1);
+  padding: 4px 10px;
+  border-radius: var(--r-pill);
+  white-space: nowrap;
+  flex-shrink: 0;
+  border: 1px solid rgba(24,226,153,0.2);
+}
+
+/* ===== HOW WE HIRE ===== */
+.process-section {
+  background: var(--gray-50);
+  padding: 120px 0;
+}
+
+.process-header { margin-bottom: 72px; }
+
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  position: relative;
+}
+
+.process-steps::before {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  height: 1px;
+  background: var(--border-mid);
+}
+
+.process-step { padding: 0 28px 0 0; position: relative; }
+
+.process-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--brand);
+  border: 2px solid var(--gray-50);
+  box-shadow: 0 0 0 1px var(--brand);
+  margin-bottom: 28px;
+  position: relative;
+  z-index: 1;
+}
+
+.process-num {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--brand-deep);
+  display: block;
+  margin-bottom: 12px;
+}
+
+.process-step-title {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+  color: var(--near-black);
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+.process-step-body {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.75;
+  color: var(--gray-500);
+}
+
+/* ===== OPEN ROLES ===== */
+.roles-section {
+  background: var(--bg);
+  padding: 120px 0;
+}
+
+.roles-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 44px;
+  gap: 32px;
+}
+
+.filter-pills { display: flex; gap: 8px; flex-wrap: wrap; }
+
+.pill {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 8px 18px;
+  border: 1px solid var(--border-mid);
+  cursor: pointer;
+  color: var(--gray-500);
+  background: transparent;
+  transition: all 0.2s;
+  border-radius: var(--r-pill);
+}
+
+.pill:hover, .pill.active {
+  background: var(--near-black);
+  color: var(--bg);
+  border-color: var(--near-black);
+}
+
+.roles-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  overflow: hidden;
+}
+
+.roles-table thead tr { background: var(--gray-50); }
+
+.roles-table th {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+  font-weight: 500;
+  text-align: left;
+  padding: 16px 28px;
+  border-bottom: 1px solid var(--border-mid);
+}
+
+.roles-table td {
+  padding: 22px 28px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+
+.roles-table tbody tr:last-child td { border-bottom: none; }
+.roles-table tbody tr { transition: background 0.2s; cursor: pointer; }
+.roles-table tbody tr:hover td { background: var(--gray-50); }
+
+.role-name {
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: -0.2px;
+  color: var(--near-black);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.role-location {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  color: var(--gray-400);
+}
+
+.role-badge {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border: 1px solid var(--border-mid);
+  color: var(--gray-500);
+  border-radius: var(--r-pill);
+  display: inline-block;
+}
+
+.role-team {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--gray-400);
+}
+
+.role-arrow {
+  font-size: 16px;
+  color: var(--brand-deep);
+  transition: transform 0.2s;
+  display: block;
+  text-align: right;
+}
+
+.roles-table tbody tr:hover .role-arrow { transform: translateX(5px); }
+
+.open-app {
+  margin-top: 24px;
+  text-align: center;
+  font-size: 14px;
+  color: var(--gray-400);
+}
+
+.open-app a {
+  color: var(--brand-deep);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.open-app a:hover { border-color: var(--brand-deep); }
+
+/* ===== FINAL CTA ===== */
+.cta-section {
+  background: var(--near-black);
+  text-align: center;
+  padding: 140px 64px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%; transform: translateX(-50%);
+  width: 900px; height: 500px;
+  background: radial-gradient(ellipse at top, rgba(24,226,153,0.11) 0%, transparent 62%);
+  pointer-events: none;
+}
+
+.cta-eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--brand);
+  margin-bottom: 28px;
+  position: relative;
+}
+
+.cta-title {
+  font-size: clamp(48px, 5vw, 72px);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -1.5px;
+  color: #ffffff;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.cta-title em { font-style: normal; color: var(--brand); }
+
+.cta-body {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.42);
+  max-width: 460px;
+  margin: 0 auto 48px;
+  position: relative;
+}
+
+.cta-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  position: relative;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: #080807;
+  border-top: 1px solid rgba(255,255,255,0.04);
+  padding: 32px 64px;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-logo {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+  color: rgba(255,255,255,0.22);
+}
+
+.footer-links { display: flex; gap: 28px; list-style: none; }
+
+.footer-links a {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.18);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover { color: var(--brand); }
+
+/* ===== SCROLL REVEAL ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">Amro <span>Partners</span></a>
+    <ul class="nav-links">
+      <li><a href="#our-story">Our Story</a></li>
+      <li><a href="#life-at-amro">Life at Amro</a></li>
+      <li><a href="#india">India Hub</a></li>
+      <li><a href="#open-roles">Open Roles</a></li>
+    </ul>
+    <a href="#open-roles" class="nav-cta">See Open Roles</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">People &amp; Careers</p>
+    <h1 class="hero-title">Build what<br>cities will<br><em>live in.</em></h1>
+    <p class="hero-sub">We're a small, focused team using data science to shape European living. If you want your work to be felt by real people in real places — you'll fit right in.</p>
+    <div class="hero-actions">
+      <a href="#open-roles" class="btn btn--dark">Explore Roles</a>
+      <a href="#our-story" class="btn btn--outline">Our Story</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-num">£1.57B</div>
+        <div class="hero-stat-label">Assets Under Management</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">25+</div>
+        <div class="hero-stat-label">Projects Delivered</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">4</div>
+        <div class="hero-stat-label">European Cities</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=2000&q=90" alt="European city skyline at dusk" loading="eager">
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span class="ticker-item"><span class="ticker-dot"></span>London</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Madrid</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Berlin</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Amsterdam</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>India — Coming Soon</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>£1.57B Assets Under Management</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>25+ Projects Across Europe</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>100% BREEAM Outstanding</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>100+ Years Combined Experience</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>London</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Madrid</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Berlin</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Amsterdam</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>India — Coming Soon</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>£1.57B Assets Under Management</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>25+ Projects Across Europe</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>100% BREEAM Outstanding</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>100+ Years Combined Experience</span>
+  </div>
+</div>
+
+<!-- WHO WE ARE -->
+<section class="who-section" id="our-story">
+  <div class="container">
+    <div class="who-grid">
+      <div class="who-text">
+        <p class="section-label reveal">Who We Are</p>
+        <h2 class="display-heading reveal reveal-delay-1">We're not a property company. We're a data company that <em>builds homes.</em></h2>
+        <p class="who-body reveal reveal-delay-2">Amro Partners sits at the intersection of intelligent investing and real human impact. We use machine learning, real-time data, and deep market expertise to develop and manage residential communities across Europe — sustainably, thoughtfully, and at scale.</p>
+        <p class="who-body reveal reveal-delay-3">What drives us isn't just returns. It's the knowledge that the models we build and the decisions we make shape where people live, how cities grow, and how sustainably the built world evolves.</p>
+      </div>
+      <div class="who-right">
+        <div class="who-img-wrap reveal">
+          <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&q=85" alt="Modern glass buildings from below" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
+        </div>
+        <blockquote class="pull-quote reveal reveal-delay-1">"The most meaningful work happens where rigorous thinking meets real consequence."</blockquote>
+        <div class="stats-strip reveal reveal-delay-2">
+          <div class="stat-cell">
+            <div class="stat-num">£1.6B</div>
+            <div class="stat-lbl">Under Management</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-num">25+</div>
+            <div class="stat-lbl">Projects Delivered</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-num">4</div>
+            <div class="stat-lbl">European Cities</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIFE AT AMRO — CULTURE SPREAD -->
+<div class="culture-section" id="life-at-amro">
+  <div class="container">
+    <div class="culture-header">
+      <p class="section-label">Life at Amro</p>
+      <p class="culture-note">The team, the work, the places we build — a glimpse into everyday life at Amro.</p>
+    </div>
+    <!-- Recommended: Wide cinematic shot — project site panorama, rooftop of a completed building, or European streetscape at golden hour -->
+    <div class="culture-img-main reveal">
+      <div class="img-ph">
+        <div class="img-ph-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M3 11h18M8 8V6a4 4 0 018 0v2"/><circle cx="12" cy="14.5" r="1.5"/></svg>
+        </div>
+        <span class="img-ph-label">Culture hero image<br>Wide cinematic shot — project site, rooftop of completed building, or European streetscape at golden hour</span>
+      </div>
+    </div>
+    <div class="culture-img-row">
+      <!-- Recommended: Team meeting or workshop candid -->
+      <div class="culture-img-small reveal">
+        <div class="img-ph">
+          <div class="img-ph-icon">
+            <svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M3 11h18M8 8V6a4 4 0 018 0v2"/><circle cx="12" cy="14.5" r="1.5"/></svg>
+          </div>
+          <span class="img-ph-label">Team meeting or workshop candid</span>
+        </div>
+      </div>
+      <!-- Recommended: Data / tech work environment — screens, analytics, office desk -->
+      <div class="culture-img-small reveal reveal-delay-1">
+        <div class="img-ph">
+          <div class="img-ph-icon">
+            <svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M3 11h18M8 8V6a4 4 0 018 0v2"/><circle cx="12" cy="14.5" r="1.5"/></svg>
+          </div>
+          <span class="img-ph-label">Data / tech work environment<br>Screens, analytics, or office desk</span>
+        </div>
+      </div>
+      <!-- Recommended: Exterior or interior of a completed Amro residential property -->
+      <div class="culture-img-small reveal reveal-delay-2">
+        <div class="img-ph">
+          <div class="img-ph-icon">
+            <svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M3 11h18M8 8V6a4 4 0 018 0v2"/><circle cx="12" cy="14.5" r="1.5"/></svg>
+          </div>
+          <span class="img-ph-label">Completed Amro property<br>Exterior or interior of a delivered residential development</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- VALUES -->
+<section class="values-section">
+  <div class="container">
+    <div class="values-header">
+      <div>
+        <p class="section-label reveal">What We Stand For</p>
+        <h2 class="display-heading reveal reveal-delay-1">The things that<br>make us, <em>us.</em></h2>
+      </div>
+      <p class="values-note reveal reveal-delay-2">These aren't words on a wall. They're how we make decisions, hire, and measure what matters.</p>
+    </div>
+    <div class="values-grid">
+      <div class="value-card reveal">
+        <span class="value-num">01</span>
+        <h3 class="value-title">Data as the edge</h3>
+        <p class="value-body">We've built proprietary machine learning capabilities that turn raw market signals into investment intelligence. Everyone here — whatever their role — is curious about what the data is saying.</p>
+      </div>
+      <div class="value-card reveal reveal-delay-1">
+        <span class="value-num">02</span>
+        <h3 class="value-title">Impact you can point to</h3>
+        <p class="value-body">Our work isn't abstract. It becomes buildings. Communities. Streets that exist because someone here made a good decision. That's the kind of accountability we embrace.</p>
+      </div>
+      <div class="value-card reveal reveal-delay-2">
+        <span class="value-num">03</span>
+        <h3 class="value-title">Small team, real ownership</h3>
+        <p class="value-body">We're not a corporation. There's no layer between your work and its outcome. You'll have genuine ownership, meaningful voice, and the trust that comes with both.</p>
+      </div>
+      <div class="value-card reveal reveal-delay-1">
+        <span class="value-num">04</span>
+        <h3 class="value-title">Sustainability, seriously</h3>
+        <p class="value-body">100% of our assets target BREEAM Outstanding. This isn't a checkbox — it's a constraint we design around, a standard we've never compromised, and a commitment our investors depend on.</p>
+      </div>
+      <div class="value-card reveal reveal-delay-2">
+        <span class="value-num">05</span>
+        <h3 class="value-title">Curious over certain</h3>
+        <p class="value-body">The best ideas at Amro come from people who ask uncomfortable questions. We'd rather have the right answer late than the wrong answer early — and we hire people who feel the same.</p>
+      </div>
+      <div class="value-card reveal reveal-delay-3">
+        <span class="value-num">06</span>
+        <h3 class="value-title">Europe as the playground</h3>
+        <p class="value-body">London, Madrid, Berlin, Amsterdam. Four markets, four cultures, one coherent approach. Working here means thinking across borders — not just with your colleagues, but in your models.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT YOU GET -->
+<section class="offer-section">
+  <div class="container">
+    <div class="offer-header">
+      <p class="section-label reveal">What You Get</p>
+      <h2 class="display-heading reveal reveal-delay-1">We invest in people<br>the way we invest <em>in assets.</em></h2>
+      <p class="offer-intro reveal reveal-delay-2">From real responsibility on day one to a team that takes the next generation seriously.</p>
+    </div>
+    <div class="offer-grid">
+      <div class="offer-item reveal">
+        <div class="offer-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l4 4"/></svg>
+        </div>
+        <h3 class="offer-title">Global exposure, real fast</h3>
+        <p class="offer-body">From day one, you're working on live European markets. Your models, your analysis, your code — it feeds real decisions across four countries.</p>
+      </div>
+      <div class="offer-item reveal reveal-delay-1">
+        <div class="offer-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+        </div>
+        <h3 class="offer-title">Ownership that means something</h3>
+        <p class="offer-body">You won't be a cog. At Amro, you'll see your work through from concept to outcome — with the senior team close enough to learn from, and the autonomy to make your mark.</p>
+      </div>
+      <div class="offer-item reveal reveal-delay-2">
+        <div class="offer-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <h3 class="offer-title">Tech that actually matters</h3>
+        <p class="offer-body">We've built proprietary ML infrastructure — Amro IQ — that drives investment decisions. You'll be building and improving the engine, not maintaining the legacy.</p>
+      </div>
+      <div class="offer-item reveal">
+        <div class="offer-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <h3 class="offer-title">People who take you seriously</h3>
+        <p class="offer-body">Low ego, high ambition. We've got 100+ years of combined experience in the room — and a genuine appetite for what the next generation brings to the table.</p>
+      </div>
+      <div class="offer-item reveal reveal-delay-1">
+        <div class="offer-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 3h18v4H3zM3 10h18v4H3zM3 17h18v4H3z"/></svg>
+        </div>
+        <h3 class="offer-title">Sustainability as default</h3>
+        <p class="offer-body">Building for a 1.5°C future isn't marketing here. It's how we underwrite. If that matters to you — and we hope it does — you'll feel it in every project.</p>
+      </div>
+      <div class="offer-item reveal reveal-delay-2">
+        <div class="offer-icon">
+          <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        </div>
+        <h3 class="offer-title">Growth without the ceiling</h3>
+        <p class="offer-body">We're expanding into India and new European markets. This is a company on the move — and the early team shapes what it becomes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INDIA HUB -->
+<section class="india-section" id="india">
+  <div class="india-left">
+    <p class="india-eyebrow">Now Building — India</p>
+    <h2 class="india-title">Where European ambition meets <em>Indian talent.</em></h2>
+    <p class="india-body">We're establishing our first India presence — a dedicated tech and analytics hub that will power Amro's next chapter. If you've been waiting for a role where your data skills shape cities, not just dashboards, this is it.</p>
+    <p class="india-body">You won't join a back-office. You'll join the engine room.</p>
+    <div class="india-cta">
+      <a href="#open-roles" class="btn btn--brand">View India Roles</a>
+    </div>
+  </div>
+  <div class="india-right">
+    <!-- Recommended: Bengaluru skyline, modern tech campus exterior, or vibrant city street scene — portrait or square crop -->
+    <div class="india-img-wrap">
+      <div class="img-ph img-ph--dark">
+        <div class="img-ph-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M3 11h18M8 8V6a4 4 0 018 0v2"/><circle cx="12" cy="14.5" r="1.5"/></svg>
+        </div>
+        <span class="img-ph-label">India hub image<br>Bengaluru skyline, modern tech campus, or vibrant city street</span>
+      </div>
+    </div>
+    <div class="india-roles-panel">
+      <p class="india-roles-label">Roles We're Hiring For</p>
+      <div class="india-roles">
+        <div class="india-role">
+          <div>
+            <div class="india-role-title">Data Scientist — Real Estate Intelligence</div>
+            <div class="india-role-sub">Bengaluru · Full-time</div>
+          </div>
+          <span class="india-tag">New</span>
+        </div>
+        <div class="india-role">
+          <div>
+            <div class="india-role-title">ML Engineer — Amro IQ Platform</div>
+            <div class="india-role-sub">Bengaluru · Full-time</div>
+          </div>
+          <span class="india-tag">New</span>
+        </div>
+        <div class="india-role">
+          <div>
+            <div class="india-role-title">Full-Stack Engineer — PropTech</div>
+            <div class="india-role-sub">Bengaluru · Full-time</div>
+          </div>
+          <span class="india-tag">New</span>
+        </div>
+        <div class="india-role">
+          <div>
+            <div class="india-role-title">Quantitative Analyst — Market Intelligence</div>
+            <div class="india-role-sub">Bengaluru · Full-time</div>
+          </div>
+          <span class="india-tag">New</span>
+        </div>
+        <div class="india-role">
+          <div>
+            <div class="india-role-title">Data Engineer — Real-Time Analytics</div>
+            <div class="india-role-sub">Bengaluru · Full-time</div>
+          </div>
+          <span class="india-tag">New</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW WE HIRE -->
+<section class="process-section">
+  <div class="container">
+    <div class="process-header">
+      <p class="section-label reveal">How We Hire</p>
+      <h2 class="display-heading reveal reveal-delay-1">Straightforward.<br><em>Human. No surprises.</em></h2>
+    </div>
+    <div class="process-steps">
+      <div class="process-step reveal">
+        <div class="process-dot"></div>
+        <span class="process-num">01</span>
+        <h3 class="process-step-title">Apply</h3>
+        <p class="process-step-body">Tell us who you are and what you've built. We read every application — no black hole, promise.</p>
+      </div>
+      <div class="process-step reveal reveal-delay-1">
+        <div class="process-dot"></div>
+        <span class="process-num">02</span>
+        <h3 class="process-step-title">First Conversation</h3>
+        <p class="process-step-body">A relaxed call with someone from the team. We're curious about you — not testing, just talking.</p>
+      </div>
+      <div class="process-step reveal reveal-delay-2">
+        <div class="process-dot"></div>
+        <span class="process-num">03</span>
+        <h3 class="process-step-title">Technical Round</h3>
+        <p class="process-step-body">A focused, practical session relevant to your role. We keep it real — not abstract puzzles.</p>
+      </div>
+      <div class="process-step reveal reveal-delay-3">
+        <div class="process-dot"></div>
+        <span class="process-num">04</span>
+        <h3 class="process-step-title">Meet the Team</h3>
+        <p class="process-step-body">A conversation with senior leadership. Equally a chance for you to assess us.</p>
+      </div>
+      <div class="process-step reveal reveal-delay-4">
+        <div class="process-dot"></div>
+        <span class="process-num">05</span>
+        <h3 class="process-step-title">Welcome Aboard</h3>
+        <p class="process-step-body">Clear offer, structured onboarding, and a team genuinely glad you're here.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OPEN ROLES -->
+<section class="roles-section" id="open-roles">
+  <div class="container">
+    <div class="roles-header">
+      <div>
+        <p class="section-label">Open Roles</p>
+        <h2 class="display-heading" style="margin-bottom:0;">Find your place <em>at Amro.</em></h2>
+      </div>
+      <div class="filter-pills">
+        <button class="pill active" data-filter="all">All</button>
+        <button class="pill" data-filter="data">Data &amp; Analytics</button>
+        <button class="pill" data-filter="engineering">Engineering</button>
+        <button class="pill" data-filter="investments">Investments</button>
+      </div>
+    </div>
+    <table class="roles-table">
+      <thead>
+        <tr>
+          <th>Role</th>
+          <th>Type</th>
+          <th>Team</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr data-team="data">
+          <td>
+            <span class="role-name">Data Scientist — Real Estate Intelligence</span>
+            <span class="role-location">Bengaluru, India</span>
+          </td>
+          <td><span class="role-badge">Full-Time</span></td>
+          <td><span class="role-team">Data &amp; Analytics</span></td>
+          <td><span class="role-arrow">→</span></td>
+        </tr>
+        <tr data-team="engineering">
+          <td>
+            <span class="role-name">ML Engineer — Amro IQ Platform</span>
+            <span class="role-location">Bengaluru, India</span>
+          </td>
+          <td><span class="role-badge">Full-Time</span></td>
+          <td><span class="role-team">Engineering</span></td>
+          <td><span class="role-arrow">→</span></td>
+        </tr>
+        <tr data-team="engineering">
+          <td>
+            <span class="role-name">Full-Stack Engineer — PropTech</span>
+            <span class="role-location">Bengaluru, India</span>
+          </td>
+          <td><span class="role-badge">Full-Time</span></td>
+          <td><span class="role-team">Engineering</span></td>
+          <td><span class="role-arrow">→</span></td>
+        </tr>
+        <tr data-team="data">
+          <td>
+            <span class="role-name">Quantitative Analyst — Market Intelligence</span>
+            <span class="role-location">Bengaluru, India</span>
+          </td>
+          <td><span class="role-badge">Full-Time</span></td>
+          <td><span class="role-team">Data &amp; Analytics</span></td>
+          <td><span class="role-arrow">→</span></td>
+        </tr>
+        <tr data-team="investments">
+          <td>
+            <span class="role-name">Investment Analyst — Living Sector</span>
+            <span class="role-location">London, UK</span>
+          </td>
+          <td><span class="role-badge">Full-Time</span></td>
+          <td><span class="role-team">Investments</span></td>
+          <td><span class="role-arrow">→</span></td>
+        </tr>
+        <tr data-team="engineering">
+          <td>
+            <span class="role-name">Data Engineer — Real-Time Analytics</span>
+            <span class="role-location">Bengaluru, India</span>
+          </td>
+          <td><span class="role-badge">Full-Time</span></td>
+          <td><span class="role-team">Engineering</span></td>
+          <td><span class="role-arrow">→</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="open-app">Don't see what you're looking for? <a href="mailto:careers@amropartners.com">Send us an open application.</a></p>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="cta-section">
+  <p class="cta-eyebrow">Ready When You Are</p>
+  <h2 class="cta-title">Your models could<br><em>shape a city.</em></h2>
+  <p class="cta-body">Join a team that takes data seriously, builds with purpose, and is just getting started in India.</p>
+  <div class="cta-actions">
+    <a href="#open-roles" class="btn btn--white">See Open Roles</a>
+    <a href="mailto:careers@amropartners.com" class="btn btn--outline-light">Get In Touch</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <span class="footer-logo">Amro Partners</span>
+    <ul class="footer-links">
+      <li><a href="#">Privacy Policy</a></li>
+      <li><a href="https://www.linkedin.com/company/4738025" target="_blank">LinkedIn</a></li>
+      <li><a href="https://www.amropartners.com" target="_blank">amropartners.com</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+// Nav scroll shadow
+const nav = document.getElementById('main-nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// Role filter
+const pills = document.querySelectorAll('.pill');
+const rows = document.querySelectorAll('.roles-table tbody tr');
+
+pills.forEach(pill => {
+  pill.addEventListener('click', () => {
+    pills.forEach(p => p.classList.remove('active'));
+    pill.classList.add('active');
+    const filter = pill.dataset.filter;
+    rows.forEach(row => {
+      row.style.display = (filter === 'all' || row.dataset.team === filter) ? '' : 'none';
+    });
+  });
+});
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
