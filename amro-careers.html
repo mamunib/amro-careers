@@ -1349,24 +1349,14 @@ footer {
 <nav id="main-nav">
   <div class="nav-inner">
     <a href="#" class="nav-logo">Amro <span>Partners</span></a>
-    <ul class="nav-links">
-      <li><a href="#our-story">Our Story</a></li>
-      <li><a href="#life-at-amro">Life at Amro</a></li>
-      <li><a href="#india">India Hub</a></li>
-      <li><a href="#open-roles">Open Roles</a></li>
-    </ul>
     <a href="#open-roles" class="nav-cta">See Open Roles</a>
-    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </button>
   </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-left">
-    <p class="hero-eyebrow">People &amp; Careers</p>
-    <h1 class="hero-title">Build what<br>cities will<br><em>live in.</em></h1>
+    <h1 class="hero-title">Build the intelligence behind<br><em>European real estate.</em></h1>
     <p class="hero-sub">We're a small, focused team using data science to shape European living. If you want your work to be felt by real people in real places — you'll fit right in.</p>
     <div class="hero-actions">
       <a href="#open-roles" class="btn btn--dark">Explore Roles</a>
@@ -1794,21 +1784,6 @@ window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 40);
 });
 
-// Hamburger menu
-const hamburger = document.getElementById('hamburger');
-const navLinks = document.querySelector('.nav-links');
-hamburger.addEventListener('click', () => {
-  hamburger.classList.toggle('open');
-  navLinks.classList.toggle('open');
-  document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
-});
-navLinks.querySelectorAll('a').forEach(a => {
-  a.addEventListener('click', () => {
-    hamburger.classList.remove('open');
-    navLinks.classList.remove('open');
-    document.body.style.overflow = '';
-  });
-});
 
 // Role filter
 const pills = document.querySelectorAll('.pill');
