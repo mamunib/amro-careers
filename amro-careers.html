@@ -948,15 +948,15 @@ nav.scrolled { box-shadow: 0 1px 16px rgba(0,0,0,0.06); }
 .filter-pills { display: flex; gap: 8px; flex-wrap: wrap; }
 
 .pill {
-  font-family: var(--mono);
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding: 8px 18px;
+  font-family: var(--font);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+  padding: 9px 20px;
   border: 1px solid var(--border-mid);
   cursor: pointer;
-  color: var(--gray-500);
+  color: var(--gray-700);
   background: transparent;
   transition: all 0.2s;
   border-radius: var(--r-pill);
@@ -979,12 +979,12 @@ nav.scrolled { box-shadow: 0 1px 16px rgba(0,0,0,0.06); }
 .roles-table thead tr { background: var(--gray-50); }
 
 .roles-table th {
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.1em;
+  font-family: var(--font);
+  font-size: 11px;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--gray-400);
-  font-weight: 500;
+  color: var(--gray-500);
+  font-weight: 700;
   text-align: left;
   padding: 16px 28px;
   border-bottom: 1px solid var(--border-mid);
@@ -1010,28 +1010,30 @@ nav.scrolled { box-shadow: 0 1px 16px rgba(0,0,0,0.06); }
 }
 
 .role-location {
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.06em;
-  color: var(--gray-400);
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0;
+  color: var(--gray-500);
 }
 
 .role-badge {
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
   padding: 5px 14px;
-  border: 1px solid var(--border-mid);
-  color: var(--gray-500);
+  border: 1px solid rgba(0,0,0,0.15);
+  color: var(--gray-700);
   border-radius: var(--r-pill);
   display: inline-block;
 }
 
 .role-team {
   font-size: 13px;
-  font-weight: 400;
-  color: var(--gray-400);
+  font-weight: 600;
+  color: var(--gray-500);
 }
 
 .role-arrow {
@@ -1341,7 +1343,7 @@ footer {
   .stat-cell { border-right: none; border-bottom: 1px solid var(--border-mid); }
   .stat-cell:last-child { border-bottom: none; }
   .filter-pills { gap: 6px; }
-  .pill { font-size: 9px; padding: 7px 14px; }
+  .pill { font-size: 12px; padding: 8px 16px; }
 }
 </style>
 </head>
